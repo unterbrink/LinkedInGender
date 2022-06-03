@@ -16,9 +16,9 @@ ratio was 57:43"
 * https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y
 
 # Step 1: Install packages
+* Install gender package to predict names from historical data [(1)](https://cran.r-project.org/web/packages/gender/gender.pdf)
+* Install janitor package to clean up variable names
 ```R
-# install gender package to predict names from historical data [1]
-# install janitor package to clean up variable names
 install.packages("gender")
 install.packages("janitor")
 remotes::install_github("lmullen/genderdata")
@@ -32,22 +32,14 @@ library(stringr) # dealing with strings
 library(tidyr) # data wrangling for graphs
 ```
 # Step 2: Upload and clean data
-* First, download your data connections data from LinkedIn [2]
-* Upload your LinkedIn Data Export. If you've downloaded it you can use the GUI. Rename the file to *LIData.zip*.
+* First, download your data connections data from LinkedIn [(2)](https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en)
+* Upload your LinkedIn Data Export. Rename the file to *LIData.zip*.
 ```R
-# The LinkedIn file has 3 rows we will omit:
-## Row 1: "Notes"
-## Row 2: "When exporting your connection data, you may notice that some of the email addresses are missing. You will only see email addresses for connections who have allowed their connections to see or download their email address using this setting https://www.linkedin.com/psettings/privacy/email. You can learn more here https://www.linkedin.com/help/linkedin/answer/261"
-## Row3: Blank
-## Use "skip = 3" to ignore these rows
-LIdata <- read_csv("LIData.zip", skip = 3)
-# Cleaning up variable names to remove spaces and capitalization
-LIdata <- clean_names(LIdata)
-# Check out the data
-head(LIdata)
+LIdata <- read_csv("LIData.zip", skip = 3) # The LinkedIn file has metadata 3 rows we will omit. Use "skip = 3" to ignore these rows
+LIdata <- clean_names(LIdata) # Cleaning up variable names to remove spaces and capitalization
+head(LIdata) # Check out the data
 summary(LIdata)
-# Check for missing data
-colMeans(is.na(LIdata))
+colMeans(is.na(LIdata)) # Check for missing data
 ```
 In my data, < 1% were missing first and last names, 99% were missing email, and 1% were missing company and position. Drop data without first name (on review of the raw data, it looks like these are people who have left LinkedIn -- only connection date is present for these rows).
 ```R
@@ -63,9 +55,9 @@ LIdata <- LIdata %>%
     first_names = str_trim(first_names)) # Trim any extra spaces
 ```
 # Step 3: Predict gender from first names
+* Run gender function on each row [(3)](https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html)
+* "ssa" is US data from 1930 - 2012, from the Social Security Administration [(4)](https://www.ssa.gov/oact/babynames/limits.html)
 ```R
-# Run gender function on each row [3]
-# "ssa" is US data from 1930 - 2012, from the Social Security Administration [4]
 LIdata_gender <- LIdata %>% 
   distinct(first_names) %>% 
   do(results = gender(.$first_names, method = "ssa")) %>% 
@@ -83,7 +75,6 @@ g <- ggplot(data = fullDF, aes(x = year, fill = gender)) +
   labs(x = "Year", y = "Percentage", fill = "ID'd Gender",
     title = "New connections by year and ID'd Gender") +
   scale_y_continuous(labels = function(x) paste0(x*100, "%"))
-
 g
 ```
 ![percentage](https://user-images.githubusercontent.com/19696619/171907390-1ca2b144-96a5-4db8-a9b1-046e22f44db6.png)
@@ -110,10 +101,10 @@ g2
 ```
 ![cumulative](https://user-images.githubusercontent.com/19696619/171907358-2bb285f1-33c5-43f8-901b-9192c64edd30.png)
 # References
-[1] https://cran.r-project.org/web/packages/gender/gender.pdf
+(1) https://cran.r-project.org/web/packages/gender/gender.pdf
 
-[2] https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en
+(2) https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en
 
-[3] https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html
+(3) https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html
 
-[4] https://www.ssa.gov/oact/babynames/limits.html
+(4) https://www.ssa.gov/oact/babynames/limits.html
