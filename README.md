@@ -15,6 +15,8 @@ male journalists more frequently than female journalists. Even after adjusting f
 ratio was 57:43"
 * [The Authority Gap, by Mary Ann Sieghart](https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y)
 
+💡Note: for this project I used Colab, a free interactive notebook provided by Google Cloud. Colab is typically used for Python, but can also be used for R. The [.ipynb](https://github.com/unterbrink/LinkedInGender/blob/main/LinkedInGenderBalance.ipynb) file has a link at the top to launch in Colab.
+
 # Step 1: Get LinkedIn data
 * Download your connections data from LinkedIn [(1)](https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en). Once you reqeuest the data, it will take about 10' for the file to be ready for download.
 
