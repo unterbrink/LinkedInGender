@@ -5,7 +5,7 @@ Estimate gender balance of your LinkedIn network. Output is an estimate of the g
 There are many limitations to this approach. To name a few:
 1. The example below estimates gender based on US data from 1930 - 2012, from the Social Security Administration. It is less effective if you have many connections without common American names.
 2. Many first names are not gender specific (especially nicknames) so there is a risk for misclassification.
-3. Many names cannot be classified, because (A) they have no match in the reference list or (B) The LinkedIn user uses an initial or other non-standard format. In my case ~11% of my contacts were not classified ("NA").
+3. Some names cannot be classified, because (A) they have no match in the reference list or (B) The LinkedIn user uses an initial or other non-standard format. In my case ~11% of my contacts were not classified ("NA").
 4. This approach does not properly account for non-binary individuals.
 
 Inspired by: 
