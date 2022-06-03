@@ -15,7 +15,7 @@ male journalists more frequently than female journalists. Even after adjusting f
 ratio was 57:43"
 * [The Authority Gap, by Mary Ann Sieghart](https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y)
 
-# Step 1: 
+# Step 1: Get LinkedIn data
 * Download your data connections data from LinkedIn [(1)](https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en)
 
 # Step 2: Install packages
