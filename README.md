@@ -13,7 +13,7 @@ Inspired by:
 * https://www.pdf-archive.com/2017/12/12/analysis-of-gender-on-twitter-to-uk-politics-journalists/analysis-of-gender-on-twitter-to-uk-politics-journalists.pdf "Both male and female influencer groups analysed exhibited an overall tendency to follow
 male journalists more frequently than female journalists. Even after adjusting for demographics the
 ratio was 57:43"
-* https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y
+* [The Authority Gap, by Mary Ann Sieghart](https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y)
 
 # Step 1: Install packages
 * Install gender package to predict names from historical data [(1)](https://cran.r-project.org/web/packages/gender/gender.pdf)
