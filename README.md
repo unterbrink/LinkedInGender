@@ -15,8 +15,11 @@ male journalists more frequently than female journalists. Even after adjusting f
 ratio was 57:43"
 * [The Authority Gap, by Mary Ann Sieghart](https://books.google.co.uk/books/about/The_Authority_Gap_Why_Women_Are_Still_Ta.html?id=EUM3EAAAQBAJ&source=kp_book_description&redir_esc=y)
 
-# Step 1: Install packages
-* Install gender package to predict names from historical data [(1)](https://cran.r-project.org/web/packages/gender/gender.pdf)
+# Step 1: 
+* Download your data connections data from LinkedIn [(1)](https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en)
+
+# Step 2: Install packages
+* Install gender package to predict names from historical data [(2)](https://cran.r-project.org/web/packages/gender/gender.pdf)
 * Install janitor package to clean up variable names
 ```R
 install.packages("gender")
@@ -31,8 +34,7 @@ library(janitor) # clean up variable names
 library(stringr) # dealing with strings
 library(tidyr) # data wrangling for graphs
 ```
-# Step 2: Upload and clean data
-* First, download your data connections data from LinkedIn [(2)](https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en)
+# Step 3: Upload and clean data
 * Upload your LinkedIn Data Export. Rename the file to *LIData.zip*.
 ```R
 LIdata <- read_csv("LIData.zip", skip = 3) # The LinkedIn file has metadata 3 rows we will omit. Use "skip = 3" to ignore these rows
@@ -54,7 +56,7 @@ LIdata <- LIdata %>%
     first_names = sub(" .*", "", first_names), # Some people have double first names, remove this
     first_names = str_trim(first_names)) # Trim any extra spaces
 ```
-# Step 3: Predict gender from first names
+# Step 4: Predict gender from first names
 * Run gender function on each row [(3)](https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html)
 * "ssa" is US data from 1930 - 2012, from the Social Security Administration [(4)](https://www.ssa.gov/oact/babynames/limits.html)
 ```R
@@ -67,7 +69,7 @@ summary(LIdata_gender)
 # Join results with original dataset
 fullDF <- left_join(LIdata, LIdata_gender, by = c("first_names" = "name"))
 ```
-# Step 4: Explore the results
+# Step 5: Explore the results
 ```R
 # Graph showing gender of connections by year added
 g <- ggplot(data = fullDF, aes(x = year, fill = gender)) +
@@ -104,9 +106,9 @@ g2
 ##### Example interpretation: Among all of my connections, the % classified as female was about 45% between 2008 and 2016, and then dropped to <35%. Note: this calculation omits "NA", so a more accurate title would be "Percentage of total classified LinkedIn connections that were classified as female"
 
 # References
-(1) https://cran.r-project.org/web/packages/gender/gender.pdf
+(1) https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en
 
-(2) https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en
+(2) https://cran.r-project.org/web/packages/gender/gender.pdf
 
 (3) https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html
 
