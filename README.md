@@ -9,7 +9,7 @@ There are many limitations to this approach. To name a few:
 4. This approach does not properly account for non-binary individuals.
 
 Inspired by: 
-* https://www.zylstra.org/blog/2019/12/my-linkedin-network-and-its-gender-balance/d Manual review of LinkedIn followers
+* https://www.zylstra.org/blog/2019/12/my-linkedin-network-and-its-gender-balance/d Manual review of LinkedIn connections
 * https://www.pdf-archive.com/2017/12/12/analysis-of-gender-on-twitter-to-uk-politics-journalists/analysis-of-gender-on-twitter-to-uk-politics-journalists.pdf "Both male and female influencer groups analysed exhibited an overall tendency to follow
 male journalists more frequently than female journalists. Even after adjusting for demographics the
 ratio was 57:43"
