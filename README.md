@@ -78,8 +78,10 @@ g <- ggplot(data = fullDF, aes(x = year, fill = gender)) +
   scale_y_continuous(labels = function(x) paste0(x*100, "%"))
 
 g
+```
+![percentage](https://user-images.githubusercontent.com/19696619/171907390-1ca2b144-96a5-4db8-a9b1-046e22f44db6.png)
+```R
 # Graph cumulative percentage of male connections
-
 #Manipulate the data -- note: this is defninitely not the most elegant approach
 cummPercent <- fullDF  %>% 
   select(gender, year) %>% 
@@ -91,9 +93,6 @@ cummPercent <- fullDF  %>%
     cummTot = cumsum(total), 
     cummFemale = cumsum(female),
     cummPercent = cummFemale / cummTot)
-
-cummPercent
-
 #Plot percentage
 g2 <- ggplot() + 
   geom_line(data = cummPercent, aes(year, y = cummPercent)) + 
@@ -102,8 +101,12 @@ g2 <- ggplot() +
     breaks = c(0.2, 0.3, 0.4, 0.5), limits = c(0.25, 0.50))
 g2
 ```
+![cumulative](https://user-images.githubusercontent.com/19696619/171907358-2bb285f1-33c5-43f8-901b-9192c64edd30.png)
 # References
 [1] https://cran.r-project.org/web/packages/gender/gender.pdf
+
 [2] https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin?lang=en
+
 [3] https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html
+
 [4] https://www.ssa.gov/oact/babynames/limits.html
