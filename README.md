@@ -1,4 +1,4 @@
-# LinkedInGender
+# LinkedIn Network Gender Balance Estimation
 Estimate gender balance of your LinkedIn network. Output is an estimate of the gender balance of your network by year added and cumulatively. US Social Security data is used to assign gender based on first name.
 
 ## Limitations
