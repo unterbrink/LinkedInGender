@@ -78,6 +78,7 @@ g <- ggplot(data = fullDF, aes(x = year, fill = gender)) +
 g
 ```
 ![percentage](https://user-images.githubusercontent.com/19696619/171907390-1ca2b144-96a5-4db8-a9b1-046e22f44db6.png)
+##### Example interpretation: The percentage of my new connections each year who are classified as female has decreased about 15% betweet 2008 and 2022 (from 40% to 25%). The percentage classified as male has increased approximately 10% to 61% in 2022, and the proportion not classified has increased to 14%.
 ```R
 # Graph cumulative percentage of male connections
 #Manipulate the data -- note: this is defninitely not the most elegant approach
@@ -100,6 +101,8 @@ g2 <- ggplot() +
 g2
 ```
 ![cumulative](https://user-images.githubusercontent.com/19696619/171907358-2bb285f1-33c5-43f8-901b-9192c64edd30.png)
+##### Example interpretation: Among all of my connections, the % classified as female was about 45% between 2008 and 2016, and then dropped to <35%. Note: this calculation omits "NA", so a more accurate title would be "Percentage of total classified LinkedIn connections that were classified as female"
+
 # References
 (1) https://cran.r-project.org/web/packages/gender/gender.pdf
 
