@@ -84,7 +84,7 @@ g
 ![percentage](https://user-images.githubusercontent.com/19696619/171907390-1ca2b144-96a5-4db8-a9b1-046e22f44db6.png)
 ##### Example interpretation: The percentage of my new connections each year who are classified as female has decreased about 15% betweet 2008 and 2022 (from 40% to 25%). The percentage classified as male has increased approximately 10% to 61% in 2022, and the proportion not classified has increased to 14%.
 ```R
-# Graph cumulative percentage of male connections
+# Graph cumulative percentage of female connections
 #Manipulate the data -- note: this is defninitely not the most elegant approach
 cummPercent <- fullDF  %>% 
   select(gender, year) %>% 
